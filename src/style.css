@@ -1,0 +1,7 @@
+html, body, main {
+  block-size: 100%;
+}
+
+body {
+  margin: 0;
+}
