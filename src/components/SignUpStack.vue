@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
+import type { SignupForm, SignUpFormErrors } from '@/types/signup'
+import { LOADING_TIMEOUT } from '@/constants'
+
 </script>
 
 <template>
