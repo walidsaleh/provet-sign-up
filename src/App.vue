@@ -1,9 +1,7 @@
 <script setup lang="ts">
-  const name = 'hi Provet World!'
+import SignUpStack from '@/components/SignUpStack.vue'
 </script>
 
 <template>
-  <provet-stack class="signup-stack" direction="vertical" align-items="center" justify-content="center">
-    <p>{{ name }}</p>
-  </provet-stack>
+  <SignUpStack />
 </template>
