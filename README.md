@@ -23,7 +23,7 @@ This project implements a client-side rendered sign-up form for Provet, as part 
 1.  Clone the repository:
 
     ```bash
-    git clone [se quitó una URL no válida]
+    git clone git@github.com:walidsaleh/provet-sign-up.git
     ```
 
 2.  Navigate to the project directory:
