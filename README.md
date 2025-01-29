@@ -1,118 +1,47 @@
-# Provet Cloud Design System - Vue example project
+# Provet Sign-Up Form (Vue 3)
 
-This template should help get you started developing with Vue 3 in Vite.
+This project implements a client-side rendered sign-up form for Provet, as part of a technical assessment. It is built using Vue 3 and aims to adhere to the Provet Cloud Design System guidelines.
 
-This repo is an example of using Vue 3 in Vite along with Provet Cloud Design System's Web Components.
-TypeScript is used, but this is not a necessity for using Vue and Provet Cloud Design System together.
+## Features
 
-This repo can be forked as a starting point for new apps. However, you may wish to undertake the process yourself so that all dependencies are up to date, and you can choose which Vue features you would like to use. The commit history shows the steps taken to integrate Vue and Provet Cloud Design System. Those steps are described next.
+*   **Email and Password Fields:** Includes required fields for email and password, with error handling for empty values.
+*   **Password Visibility Toggle:** Provides a way for users to toggle the visibility of the password.
+*   **Product Updates Opt-in:** Allows users to choose to receive occasional product updates and announcements.
+*   **Success Page:** Displays a success message upon successful form submission.
+*   **Provet Cloud Design System Integration:**  Utilizes the Provet Cloud Design System for styling and components.
+*   **Client-Side Rendering:** The application is rendered entirely on the client-side.
+*   **Vue 3:** Built using Vue 3.
 
-## Setting up a project from scratch
+## Technologies Used
 
-First initialize a new Vue project. This will ask a series of questions, to determine your project name, and which vue features you would like to use:
+*   Vue 3
+*   Provet Cloud Design System
+*   TypeScript (if implemented)
 
-```sh
-npm init vue@latest
-```
+## Installation
 
-Follow any instructions printed in the terminal.
+1.  Clone the repository:
 
-Next install Provet Cloud Design System dependencies:
+    ```bash
+    git clone [se quitó una URL no válida]
+    ```
 
-```sh
-npm install @provetcloud/web-components @provetcloud/css --save
-```
+2.  Navigate to the project directory:
 
-When complete, open your editor and navigate to the `vite.config` file. You must [configure Vue to support web components](https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue):
+    ```bash
+    cd provet-sign-in
+    ```
 
-```js
-import vue from "@vitejs/plugin-vue";
+3.  Install dependencies:
 
-export default {
-  plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          // treat all tags with a dash as custom elements
-          isCustomElement: (tag) => tag.includes("-"),
-        },
-      },
-    }),
-  ],
-};
-```
+    ```bash
+    npm install or yarn install or pnpm install
+    ```
 
-In your `main.js` or `main.ts` file, import the Provet Cloud Design System dependencies:
+4.  Serve the application:
 
-```js
-// main.js
-import { createApp } from "vue";
-import App from "./App.vue";
+    ```bash
+    npm run dev or yarn dev or pnpm run dev
+    ```
 
-import "@provetcloud/css";
-import "@provetcloud/web-components";
-
-createApp(App).mount("#app");
-```
-
-This will ensure Provet Cloud Design System styles are included in your app, and register all Web Components ready for use.
-
-Optionally, add the types and editor integration by installing `@provetcloud/web-components-vue-types` and adding the following to your `tsconfig.app.json` in a TypeScript project, or `jsconfig.json` in a JavaScript project:
-
-```json
-{
-  "compilerOptions": {
-    "types": ["@provetcloud/web-components-vue-types"]
-  }
-}
-```
-
-Now everything is ready! In a component file (assuming use of Vue Single-File Components and the Composition API), you can start using Provet Cloud Design System:
-
-```vue
-<script setup>
-import { ref } from "vue";
-
-const name = ref("");
-const count = ref(0);
-</script>
-
-<template>
-  <provet-stack class="n-reset">
-    <provet-input label="Your name" v-model="name"></provet-input>
-    <p>{{ name }}</p>
-
-    <provet-button variant="primary" @click="count++">
-      Count: {{ count }}
-    </provet-button>
-  </provet-stack>
-</template>
-```
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-Clone this repo, then:
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+## Project Structure
