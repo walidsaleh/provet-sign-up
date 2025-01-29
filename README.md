@@ -1,5 +1,9 @@
 # Provet Sign-Up Form (Vue 3)
 
+## Live Demo
+Deployed at netlify:
+https://provet-sign-up.netlify.app
+
 This project implements a client-side rendered sign-up form for Provet, as part of a technical assessment. It is built using Vue 3 and aims to adhere to the Provet Cloud Design System guidelines.
 
 ## Features
