@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import type { SignupForm, SignUpFormErrors } from '@/types/signup'
 import { LOADING_TIMEOUT } from '@/constants'
+import type { SignUpForm, SignUpFormErrors } from '@/types/signup'
+import type { ToastMessage } from '@/types/toast'
 
 </script>
 
