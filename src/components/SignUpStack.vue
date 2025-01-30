@@ -48,6 +48,31 @@ const validateForm = () => {
     !!signUpForm.value.password?.trim()
 }
 
+// Form submission
+const handleSubmit = async () => {
+  if (!isValidForm.value) return
+
+  showPassword.value = false
+  isLoading.value = true
+
+  try {
+    await new Promise((resolve) => setTimeout(resolve, LOADING_TIMEOUT))
+    isSuccess.value = true
+    emit('toast-requested', {
+      message: 'Successful registration! Welcome to Provet',
+      variant: 'default',
+    })
+  } catch (error) {
+    emit('toast-requested', {
+      message:
+        (error as Error).message ||
+        'There was an error processing your registration. Please try again',
+      variant: 'danger',
+    })
+  } finally {
+    isLoading.value = false
+  }
+}
 </script>
 
 <template>
