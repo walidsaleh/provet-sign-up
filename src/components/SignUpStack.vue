@@ -106,6 +106,66 @@ const handleSubmit = async () => {
           <h1 slot="header" class="n-font-size-l">{{ literals.signUp.title }}</h1>
           <provet-stack>
             <p>{{ literals.signUp.subtitle }}</p>
+            <form @submit.prevent="handleSubmit">
+              <provet-stack>
+                <provet-input
+                  id="email"
+                  v-model="signUpForm.email"
+                  :label="literals.signUp.email.label"
+                  :placeholder="literals.signUp.email.placeholder"
+                  expand
+                  type="email"
+                  :disabled="isLoading"
+                  required
+                  :error="signUpFormErrors.email"
+                  @blur="validateEmail"
+                ></provet-input>
+
+                <provet-input
+                  id="password"
+                  v-model="signUpForm.password"
+                  :label="literals.signUp.password.label"
+                  :placeholder="literals.signUp.password.placeholder"
+                  expand
+                  :type="passwordType"
+                  :disabled="isLoading"
+                  required
+                  :error="signUpFormErrors.password"
+                  @blur="validatePassword"
+                >
+                  <provet-icon
+                    v-show="signUpForm.password"
+                    class="unmask-icon"
+                    :name="showPassword ? 'interface-edit-off' : 'interface-edit-on'"
+                    size="s"
+                    slot="end"
+                    @click="togglePasswordVisibility"
+                  ></provet-icon>
+                </provet-input>
+
+                <provet-toggle
+                  :checked="signUpForm.receiveUpdates"
+                  :label="literals.signUp.keepUpdated"
+                  :disabled="isLoading"
+                  size="s"
+                  @change="toggleReceiveUpdates"
+                ></provet-toggle>
+
+                <provet-button
+                  type="submit"
+                  expand
+                  variant="primary"
+                  :loading="isLoading"
+                  :disabled="!isValidForm"
+                >
+                  {{
+                    isLoading
+                      ? literals.signUp.submitButton.loading
+                      : literals.signUp.submitButton.default
+                  }}
+                </provet-button>
+              </provet-stack>
+            </form>
           </provet-stack>
         </provet-card>
         <provet-card class="n-align-center">
