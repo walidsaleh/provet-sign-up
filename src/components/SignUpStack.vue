@@ -101,6 +101,11 @@ const handleSubmit = async () => {
         </template>
       </provet-banner>
 
+      <template v-else>
+        <provet-card padding="l">
+          <h1 slot="header" class="n-font-size-l">{{ literals.signUp.title }}</h1>
+        </provet-card>
+      </template>
     </provet-stack>
   </provet-stack>
 </template>
