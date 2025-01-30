@@ -1,5 +1,12 @@
-html, body, main {
+html,
+body,
+main {
   block-size: 100%;
+}
+
+html,
+body {
+  background: var(--n-color-surface-raised);
 }
 
 body {
