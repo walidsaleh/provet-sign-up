@@ -22,6 +22,12 @@ const signUpFormErrors = ref<SignUpFormErrors>({
 
 const showPassword = ref<boolean>(false)
 const passwordType = computed(() => (showPassword.value ? 'text' : 'password'))
+const togglePasswordVisibility = () => {
+  showPassword.value = !showPassword.value
+}
+const toggleReceiveUpdates = () => {
+  signUpForm.value.receiveUpdates = !signUpForm.value.receiveUpdates
+}
 
 const isLoading = ref<boolean>(false)
 const isSuccess = ref<boolean>(false)
