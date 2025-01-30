@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { LOADING_TIMEOUT } from '@/constants'
 import type { SignUpForm, SignUpFormErrors } from '@/types/signup'
 import type { ToastMessage } from '@/types/toast'
+import { literals } from '@/i18n/literals'
 
 const emit = defineEmits<{
   'toast-requested': [toastMessage: ToastMessage]
@@ -59,14 +60,12 @@ const handleSubmit = async () => {
     await new Promise((resolve) => setTimeout(resolve, LOADING_TIMEOUT))
     isSuccess.value = true
     emit('toast-requested', {
-      message: 'Successful registration! Welcome to Provet',
+      message: literals.signUp.registration.success,
       variant: 'default',
     })
   } catch (error) {
     emit('toast-requested', {
-      message:
-        (error as Error).message ||
-        'There was an error processing your registration. Please try again',
+      message: (error as Error).message || literals.signUp.registration.error,
       variant: 'danger',
     })
   } finally {
@@ -84,7 +83,7 @@ const handleSubmit = async () => {
   >
     <img
       class="provet-cloud-logo"
-      alt="Provet Cloud logo"
+      :alt="literals.signUp.logoAlt"
       src="/provet_cloud_new_logo_570x80.png"
     />
   </provet-stack>
