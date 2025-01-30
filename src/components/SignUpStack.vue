@@ -4,6 +4,10 @@ import { LOADING_TIMEOUT } from '@/constants'
 import type { SignUpForm, SignUpFormErrors } from '@/types/signup'
 import type { ToastMessage } from '@/types/toast'
 
+const emit = defineEmits<{
+  'toast-requested': [toastMessage: ToastMessage]
+}>()
+
 </script>
 
 <template>
