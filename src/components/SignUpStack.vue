@@ -82,6 +82,11 @@ const handleSubmit = async () => {
     align-items="center"
     justify-content="center"
   >
+    <img
+      class="provet-cloud-logo"
+      alt="Provet Cloud logo"
+      src="/provet_cloud_new_logo_570x80.png"
+    />
   </provet-stack>
 </template>
 
