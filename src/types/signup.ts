@@ -5,6 +5,6 @@ export interface SignUpForm {
 }
 
 export interface SignUpFormErrors {
-  email: string
-  password: string
+  email: string | undefined
+  password: string | undefined
 }
