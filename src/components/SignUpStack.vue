@@ -78,6 +78,18 @@ const handleSubmit = async () => {
     isLoading.value = false
   }
 }
+
+defineExpose({
+  isLoading,
+  isSuccess,
+  isValidForm,
+  passwordType,
+  showPassword,
+  signUpForm,
+  signUpFormErrors,
+  validateEmail,
+  validatePassword,
+})
 </script>
 
 <template>
