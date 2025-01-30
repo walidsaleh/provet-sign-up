@@ -48,7 +48,7 @@ const validatePassword = () => {
 const isValidForm = ref<boolean>(false)
 
 const validateForm = () => {
-  isValidForm.value = 
+  isValidForm.value =
     !signUpFormErrors.value.email &&
     !signUpFormErrors.value.password &&
     !!signUpForm.value.email?.trim() &&
@@ -187,5 +187,14 @@ const handleSubmit = async () => {
   max-inline-size: 600px;
   margin: var(--n-space-xl) auto;
   row-gap: var(--n-space-xl);
+
+  .unmask-icon {
+    cursor: pointer;
+    pointer-events: all;
+  }
+}
+
+.provet-cloud-logo {
+  max-block-size: var(--n-space-xl);
 }
 </style>
