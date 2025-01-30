@@ -8,6 +8,23 @@ const emit = defineEmits<{
   'toast-requested': [toastMessage: ToastMessage]
 }>()
 
+const signUpForm = ref<SignUpForm>({
+  email: '',
+  password: '',
+  receiveUpdates: false,
+})
+
+const signUpFormErrors = ref<SignUpFormErrors>({
+  email: undefined,
+  password: undefined,
+})
+
+const showPassword = ref<boolean>(false)
+const passwordType = computed(() => (showPassword.value ? 'text' : 'password'))
+
+const isLoading = ref<boolean>(false)
+const isSuccess = ref<boolean>(false)
+
 </script>
 
 <template>
