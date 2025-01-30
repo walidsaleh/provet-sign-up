@@ -92,6 +92,16 @@ const handleSubmit = async () => {
       :alt="literals.signUp.logoAlt"
       src="/provet_cloud_new_logo_570x80.png"
     />
+    <provet-stack style="max-inline-size: 340px; margin: var(--n-space-xl) auto" padding="l">
+      <provet-banner v-if="isSuccess" shadow variant="success"
+        >{{ literals.signUp.registration.thanks }}
+        <template v-if="signUpForm.receiveUpdates">
+          <br />
+          {{ literals.signUp.registration.willUpdate }}
+        </template>
+      </provet-banner>
+
+    </provet-stack>
   </provet-stack>
 </template>
 
