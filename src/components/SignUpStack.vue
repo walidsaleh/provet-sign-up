@@ -104,6 +104,17 @@ const handleSubmit = async () => {
       <template v-else>
         <provet-card padding="l">
           <h1 slot="header" class="n-font-size-l">{{ literals.signUp.title }}</h1>
+          <provet-stack>
+            <p>{{ literals.signUp.subtitle }}</p>
+          </provet-stack>
+        </provet-card>
+        <provet-card class="n-align-center">
+          {{ literals.signUp.registration.allreadyRegistered }}
+          <a
+            :href="literals.signUp.registration.loginUrl"
+            :title="literals.signUp.registration.loginTitle"
+            >{{ literals.signUp.registration.logIn }}</a
+          >
         </provet-card>
       </template>
     </provet-stack>
