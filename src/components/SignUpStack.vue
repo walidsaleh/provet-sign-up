@@ -25,6 +25,29 @@ const passwordType = computed(() => (showPassword.value ? 'text' : 'password'))
 const isLoading = ref<boolean>(false)
 const isSuccess = ref<boolean>(false)
 
+// minimal validation, this could be moved to a utils function
+const validateEmail = () => {
+  signUpFormErrors.value.email = signUpForm.value.email?.trim() ? undefined : 'Email is required'
+  validateForm()
+}
+
+const validatePassword = () => {
+  signUpFormErrors.value.password = signUpForm.value.password?.trim()
+    ? undefined
+    : 'Password is required'
+  validateForm()
+}
+
+const isValidForm = ref<boolean>(false)
+
+const validateForm = () => {
+  isValidForm.value = 
+    !signUpFormErrors.value.email &&
+    !signUpFormErrors.value.password &&
+    !!signUpForm.value.email?.trim() &&
+    !!signUpForm.value.password?.trim()
+}
+
 </script>
 
 <template>
