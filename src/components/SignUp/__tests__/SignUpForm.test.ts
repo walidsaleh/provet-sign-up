@@ -1,14 +1,12 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { mount, type VueWrapper } from '@vue/test-utils'
-import SignUpStack from '../SignUpStack.vue'
-import type { SignUpForm, SignUpFormErrors } from '../../types/signup'
-import { LOADING_TIMEOUT } from '../../constants'
+import SignUpForm from '../SignUpForm.vue'
 
-describe('SignUpStack', () => {
-  let wrapper: VueWrapper<InstanceType<typeof SignUpStack>>
+describe('SignUpForm', () => {
+  let wrapper: VueWrapper<InstanceType<typeof SignUpForm>>
 
   beforeEach(() => {
-    wrapper = mount(SignUpStack, {
+    wrapper = mount(SignUpForm, {
       attachTo: document.body,
     })
   })
@@ -17,7 +15,6 @@ describe('SignUpStack', () => {
     const validateEmail = wrapper.vm.validateEmail
     const isValidForm = wrapper.vm.isValidForm
     const formErrors = wrapper.vm.signUpFormErrors
-
     const form = wrapper.vm.signUpForm
     form.email = ''
 
@@ -86,18 +83,6 @@ describe('SignUpStack', () => {
     await wrapper.vm.$nextTick()
 
     expect(wrapper.vm.isValidForm).toBe(true)
-
-    await wrapper.find('form').trigger('submit')
-    await wrapper.vm.$nextTick()
-
-    expect(wrapper.vm.isLoading).toBe(true)
-    expect(wrapper.vm.showPassword).toBe(false)
-
-    await new Promise((resolve) => setTimeout(resolve, LOADING_TIMEOUT + 100))
-    await wrapper.vm.$nextTick()
-
-    expect(wrapper.vm.isLoading).toBe(false)
-    expect(wrapper.vm.isSuccess).toBe(true)
   })
 
   afterEach(() => {

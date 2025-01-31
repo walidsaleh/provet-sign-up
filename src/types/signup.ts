@@ -1,4 +1,4 @@
-export interface SignUpForm {
+export interface SignUpFormData {
   email: string
   password: string
   receiveUpdates: boolean
