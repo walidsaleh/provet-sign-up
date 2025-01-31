@@ -76,20 +76,19 @@ This project implements a client-side rendered sign-up form for Provet, built us
 
 ```
 src/
-├── components/          # Vue components
-│   └── SignUp/          # Sign-up related components
-│       ├── SignUpForm.vue      # Sign-up form component
-│       ├── SignupStack.vue     # Main sign-up stack component
-│       └── __tests__/          # Component unit tests
-│           ├── SignUpForm.test.ts   # SignUpForm unit tests
-│           └── SignupStack.test.ts  # SignupStack unit tests
-├── types/               # TypeScript type definitions
-│   ├── signup.ts        # Sign-up form type definitions
-│   └── toast.ts         # Toast message type definitions
-├── constants.ts         # Application-wide constants
-├── style.css            # Global styles
-├── App.vue              # Root Vue application component
-└── main.ts              # Application entry point
+├── components/                         # Vue components
+│   └── SignUp/                         # Sign-up related components
+│       ├── SignUpForm.vue              # Sign-up form component
+│       ├── SignupStack.vue             # Main sign-up stack component
+│       └── __tests__/                  # Component unit tests
+│           ├── SignUpForm.test.ts      # SignUpForm unit tests
+├── types/                              # TypeScript type definitions
+│   ├── signup.ts                       # Sign-up form type definitions
+│   └── toast.ts                        # Toast message type definitions
+├── constants.ts                        # Application-wide constants
+├── style.css                           # Global styles
+├── App.vue                             # Root Vue application component
+└── main.ts                             # Application entry point
 ```
 
 ## Testing Strategy
