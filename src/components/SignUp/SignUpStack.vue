@@ -59,7 +59,9 @@ defineExpose({
   validatePassword,
   signUpForm,
   isValidForm: computed(() => signUpFormRef.value?.isValidForm ?? false),
-  signUpFormErrors: computed(() => signUpFormRef.value?.signUpFormErrors ?? { email: undefined, password: undefined }),
+  signUpFormErrors: computed(
+    () => signUpFormRef.value?.signUpFormErrors ?? { email: undefined, password: undefined }
+  ),
 })
 </script>
 
@@ -83,11 +85,7 @@ defineExpose({
           <h1 slot="header" class="n-font-size-l">{{ literals.signUp.title }}</h1>
           <provet-stack>
             <p>{{ literals.signUp.subtitle }}</p>
-            <SignUpForm 
-              ref="signUpFormRef"
-              @submit="handleSubmit" 
-              :is-loading="isLoading" 
-            />
+            <SignUpForm ref="signUpFormRef" @submit="handleSubmit" :is-loading="isLoading" />
           </provet-stack>
         </provet-card>
 
