@@ -4,64 +4,69 @@
 
 Deployed at Netlify: [https://provet-sign-up.netlify.app](https://provet-sign-up.netlify.app)
 
-This project implements a client-side rendered sign-up form for Provet, as part of a technical assessment. It is built using Vue 3 + TypeScript and adheres to the Provet Cloud Design System guidelines.
+This project implements a client-side rendered sign-up form for Provet, built using Vue 3 + TypeScript and adhering to the Provet Cloud Design System guidelines.
 
 ## Features
 
 ### Form Validation
 
-*   Basic required field validation
-*   Immediate validation on field blur
-*   Dynamic error messaging
+- Comprehensive client-side validation
+- Immediate validation on field blur
+- Dynamic, context-aware error messaging
+- Prevents form submission with invalid inputs
 
 ### User Experience
 
-*   Elegant password visibility toggle using eye icon
-*   Seamless, non-intrusive validation feedback
-*   Toast notifications for form submission
-*   Form fields disabled during loading state
+- Elegant password visibility toggle
+- Seamless, non-intrusive validation feedback
+- Toast notifications for form submission
+- Adaptive form state management
+- Disabled form fields during loading state
 
 ## Core Technologies
 
-*   Vue 3 Composition API
-*   TypeScript
-*   Provet Cloud Design System
-*   Vitest for testing
+- Vue 3 Composition API
+- TypeScript
+- Provet Cloud Design System
+- Vitest for unit testing
+- Vue Test Utils for component testing
 
 ## Technical Highlights
 
-*   Custom Web Components (`provet-*`)
-*   Comprehensive form validation
-*   Strict TypeScript type enforcement
-*   Unit test coverage
+- Modular component architecture
+- Custom Web Components (`provet-*`)
+- Strict TypeScript type enforcement
+- Comprehensive unit test coverage
+- Reactive state management
+- Separation of concerns in component design
 
 ## Installation
 
-1.  Clone the repository:
+1. Clone the repository:
 
     ```bash
     git clone git@github.com:walidsaleh/provet-sign-up.git
     ```
 
-2.  Navigate to the project directory:
+2. Navigate to the project directory:
 
     ```bash
     cd provet-sign-up
     ```
 
-3.  Install dependencies:
+3. Install dependencies:
 
     ```bash
     npm install
     ```
 
-4.  Run in development mode:
+4. Run in development mode:
 
     ```bash
     npm run dev
     ```
 
-5.  Run tests:
+5. Run tests:
 
     ```bash
     npm run test
@@ -72,9 +77,12 @@ This project implements a client-side rendered sign-up form for Provet, as part 
 ```
 src/
 ├── components/          # Vue components
-│   ├── SignUpStack.vue  # Main sign-up form component
-│   └── __tests__/       # Component unit tests
-│       └── SignUpStack.test.ts
+│   └── SignUp/          # Sign-up related components
+│       ├── SignUpForm.vue      # Sign-up form component
+│       ├── SignupStack.vue     # Main sign-up stack component
+│       └── __tests__/          # Component unit tests
+│           ├── SignUpForm.test.ts   # SignUpForm unit tests
+│           └── SignupStack.test.ts  # SignupStack unit tests
 ├── types/               # TypeScript type definitions
 │   ├── signup.ts        # Sign-up form type definitions
 │   └── toast.ts         # Toast message type definitions
@@ -84,60 +92,66 @@ src/
 └── main.ts              # Application entry point
 ```
 
-## Testing
+## Testing Strategy
 
-The project includes a comprehensive test suite covering:
+### Component Testing
 
-### Form Validation
+Our testing approach focuses on comprehensive coverage of `SignUpForm` component:
 
-*   Validation of empty email field
-*   Validation of empty password field
-*   Validation of whitespace-only inputs
+#### Form Validation Tests
+- Validate empty email field handling
+- Validate empty password field handling
+- Test whitespace-only input validation
+- Verify form state changes during validation
 
-### Password Visibility
+#### User Interaction Tests
+- Password visibility toggle functionality
+- Form submission with valid/invalid inputs
+- Loading state management
+- Event emission verification
 
-*   Eye icon toggle for password visibility
-*   Conditional icon display based on password input
+### Test Coverage
 
-### Form Submission
+- Unit tests for individual component methods
+- Integration tests for form validation logic
+- User interaction scenario testing
+- Edge case handling verification
 
-*   Loading state management
-*   Success message display
-*   Error handling
+## Performance Considerations
 
-## Technologies & Development
+- Minimal runtime overhead
+- Efficient reactive updates
+- Optimized form validation
+- Lazy-loaded components
 
-This project utilizes the following technologies and development practices:
+## Accessibility
 
-*   **Frontend Framework:** Vue 3 (Composition API)
-*   **Type Safety:** TypeScript
-*   **UI Library:** Provet Cloud Design System (including custom Web Components)
-*   **Testing:** Vitest and Vue Test Utils
+- Semantic HTML structure
+- ARIA attributes for form elements
+- Keyboard navigation support
+- Screen reader compatibility
 
-## UX Design Considerations
+## Future Improvements
 
-### Validation Approach
+- Add more comprehensive form validations
+- Implement internationalization (i18n)
+- Enhance error handling
+- Add more granular unit tests
 
-This form implements a pragmatic validation strategy that balances user experience with data integrity. Validation occurs programmatically to provide immediate, non-intrusive feedback.
+## Contributing
 
-Key validation principles:
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-*   Minimal interruption to user workflow
-*   Immediate error detection
-*   Clear, concise error messaging
-*   Final validation check during form submission
+## License
 
-The approach focuses on creating a smooth, responsive form interaction that guides users without overwhelming them with immediate or constant validation messages.
+Distributed under the MIT License. See `LICENSE` for more information.
 
-### Password Visibility
+## Contact
 
-The password field features an intuitive eye icon for toggling password visibility, directly integrated within the input field. This approach provides a clean, modern solution for password masking:
+Walid Saleh - [LinkedIn](https://www.linkedin.com/in/walplanet)
 
-*   Seamless icon integration
-*   Dynamic open/closed eye states
-*   Conditional display based on password input
-*   Immediate visual feedback on password visibility
-
-### Form Submission
-
-The submit button is disabled until the form is valid. During the form submission loading state, all form fields are disabled to prevent further user input and ensure data consistency. A success message is displayed upon successful submission.  The checkbox state is updated to reflect the user's choice about receiving updates.
+Project Link: [https://github.com/walidsaleh/provet-sign-up](https://github.com/walidsaleh/provet-sign-up)
