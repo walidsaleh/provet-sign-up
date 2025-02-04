@@ -10,9 +10,9 @@ describe('SignUpForm', () => {
       attachTo: document.body,
       global: {
         provide: {
-          displayToast: vi.fn()
-        }
-      }
+          displayToast: vi.fn(),
+        },
+      },
     })
   })
 
@@ -81,7 +81,7 @@ describe('SignUpForm', () => {
   it('handles form submission with valid inputs', async () => {
     // Mock timer
     vi.useFakeTimers()
-    
+
     const form = wrapper.vm.signUpForm
     form.email = 'test@example.com'
     await wrapper.find('#email').trigger('blur')
@@ -94,18 +94,20 @@ describe('SignUpForm', () => {
 
     // Trigger submit
     await wrapper.find('form').trigger('submit')
-    
+
     // Fast-forward timers
     await vi.runAllTimers()
     await wrapper.vm.$nextTick()
 
     expect(wrapper.emitted()).toHaveProperty('success')
     const emittedSuccess = wrapper.emitted('success')
-    expect(emittedSuccess?.[0]).toEqual([{
-      email: 'test@example.com',
-      password: 'password123',
-      receiveUpdates: false
-    }])
+    expect(emittedSuccess?.[0]).toEqual([
+      {
+        email: 'test@example.com',
+        password: 'password123',
+        receiveUpdates: false,
+      },
+    ])
 
     // Restore timers
     vi.useRealTimers()
@@ -113,7 +115,7 @@ describe('SignUpForm', () => {
 
   it('emits error event when submission fails', async () => {
     vi.useFakeTimers()
-    
+
     const form = wrapper.vm.signUpForm
     form.email = 'test@example.com'
     form.password = 'password123'
@@ -121,7 +123,7 @@ describe('SignUpForm', () => {
 
     // Trigger submit
     const submitPromise = wrapper.find('form').trigger('submit')
-    
+
     // Advance timers to trigger the setTimeout
     vi.runAllTimers()
     await submitPromise
