@@ -24,6 +24,9 @@ const showPassword = ref<boolean>(false)
 const isLoading = ref<boolean>(false)
 const passwordType = computed(() => (showPassword.value ? 'text' : 'password'))
 
+const emailTrimmed = computed(() => signUpForm.value.email.trim())
+const passwordTrimmed = computed(() => signUpForm.value.password.trim())
+
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value
 }
@@ -33,14 +36,16 @@ const toggleReceiveUpdates = () => {
 }
 
 const validateEmail = () => {
-  signUpFormErrors.value.email = signUpForm.value.email?.trim() ? undefined : 'Email is required'
+  signUpFormErrors.value.email = emailTrimmed.value
+    ? undefined
+    : literals.signUp.validation.emailRequired
   validateForm()
 }
 
 const validatePassword = () => {
-  signUpFormErrors.value.password = signUpForm.value.password?.trim()
+  signUpFormErrors.value.password = passwordTrimmed.value
     ? undefined
-    : 'Password is required'
+    : literals.signUp.validation.passwordRequired
   validateForm()
 }
 
@@ -50,8 +55,8 @@ const validateForm = () => {
   isValidForm.value =
     !signUpFormErrors.value.email &&
     !signUpFormErrors.value.password &&
-    signUpForm.value.email.trim() !== '' &&
-    signUpForm.value.password.trim() !== '' &&
+    !!emailTrimmed.value &&
+    !!passwordTrimmed.value &&
     !isLoading.value
 }
 
