@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, provide } from 'vue'
 import SignUpStack from '@/components/SignUp/SignUpStack.vue'
 import type { ToastMessage } from '@/types/toast'
 
@@ -8,10 +8,12 @@ const toastMessage = ref<ToastMessage>(emptyToastMessage)
 
 const hideToast = () => (toastMessage.value = emptyToastMessage)
 const displayToast = (toastMessageObject: ToastMessage) => (toastMessage.value = toastMessageObject)
+
+provide('displayToast', displayToast)
 </script>
 
 <template>
-  <SignUpStack @toast-requested="displayToast" />
+  <SignUpStack />
   <provet-toast-group @dismiss="hideToast">
     <provet-toast
       v-if="toastMessage.message"

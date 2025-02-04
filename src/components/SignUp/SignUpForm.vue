@@ -1,22 +1,13 @@
 <script setup lang="ts">
-import { ref, computed, withDefaults, defineProps, defineEmits } from 'vue'
+import { ref, computed, inject } from 'vue'
 import type { SignUpFormData, SignUpFormErrors } from '@/types/signup'
 import type { ToastMessage } from '@/types/toast'
 import { literals } from '@/i18n/literals'
+import { LOADING_TIMEOUT } from '@/constants'
 
-const props = withDefaults(
-  defineProps<{
-    isLoading: boolean
-  }>(),
-  {
-    isLoading: false,
-  }
-)
+const emit = defineEmits(['success', 'error'])
 
-const emit = defineEmits<{
-  submit: [form: SignUpFormData]
-  'toast-requested': [toastMessage: ToastMessage]
-}>()
+const displayToast = inject<(toast: ToastMessage) => void>('displayToast')
 
 const signUpForm = ref<SignUpFormData>({
   email: '',
@@ -30,6 +21,7 @@ const signUpFormErrors = ref<SignUpFormErrors>({
 })
 
 const showPassword = ref<boolean>(false)
+const isLoading = ref<boolean>(false)
 const passwordType = computed(() => (showPassword.value ? 'text' : 'password'))
 
 const togglePasswordVisibility = () => {
@@ -60,14 +52,31 @@ const validateForm = () => {
     !signUpFormErrors.value.password &&
     signUpForm.value.email.trim() !== '' &&
     signUpForm.value.password.trim() !== '' &&
-    !props.isLoading
+    !isLoading.value
 }
 
 const handleSubmit = async () => {
   if (!isValidForm.value) return
 
   showPassword.value = false
-  emit('submit', signUpForm.value)
+  isLoading.value = true
+
+  try {
+    await new Promise((resolve) => setTimeout(resolve, LOADING_TIMEOUT))
+    displayToast?.({
+      message: literals.signUp.registration.success,
+      variant: 'default',
+    })
+    emit('success', signUpForm.value)
+  } catch (error) {
+    displayToast?.({
+      message: (error as Error).message || literals.signUp.registration.error,
+      variant: 'danger',
+    })
+    emit('error', (error as Error).message || literals.signUp.registration.error)
+  } finally {
+    isLoading.value = false
+  }
 }
 
 defineExpose({
@@ -132,7 +141,7 @@ defineExpose({
         expand
         variant="primary"
         :disabled="!isValidForm"
-        :loading="props.isLoading"
+        :loading="isLoading"
       >
         {{
           isLoading ? literals.signUp.submitButton.loading : literals.signUp.submitButton.default
