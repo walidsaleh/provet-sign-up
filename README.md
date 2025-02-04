@@ -37,7 +37,8 @@ This project implements a client-side rendered sign-up form for Provet, built us
 - Custom Web Components (`provet-*`)
 - Strict TypeScript type enforcement
 - Comprehensive unit test coverage
-- Reactive state management
+- Dependency injection using Vue's provide/inject
+- Flexible content rendering with slots
 - Separation of concerns in component design
 
 ## Installation
@@ -79,7 +80,8 @@ src/
 ├── components/                         # Vue components
 │   └── SignUp/                         # Sign-up related components
 │       ├── SignUpForm.vue              # Sign-up form component
-│       ├── SignupStack.vue             # Main sign-up stack component
+│       ├── SignUpStack.vue             # Main sign-up stack component
+│       ├── SignUpLoginLink.vue         # Login link component
 │       └── __tests__/                  # Component unit tests
 │           ├── SignUpForm.test.ts      # SignUpForm unit tests
 ├── types/                              # TypeScript type definitions
@@ -91,30 +93,35 @@ src/
 └── main.ts                             # Application entry point
 ```
 
+## Component Architecture
+
+### SignUpStack
+- Main container component
+- Manages form and success states
+- Renders success message using Provet Banner
+- Uses slots for flexible content rendering
+
+### SignUpForm
+- Handles form validation and submission
+- Uses dependency injection for toast notifications
+- Emits success/error events to parent
+- Manages loading states during submission
+
+### SignUpLoginLink
+- Provides navigation to login page
+- Reusable component for consistent styling
+
 ## Testing Strategy
 
 ### Component Testing
 
 Our testing approach focuses on comprehensive coverage of `SignUpForm` component:
 
-#### Form Validation Tests
-- Validate empty email field handling
-- Validate empty password field handling
-- Test whitespace-only input validation
-- Verify form state changes during validation
-
-#### User Interaction Tests
-- Password visibility toggle functionality
-- Form submission with valid/invalid inputs
+#### SignUpForm Tests
+- Form validation and submission
+- Event emission for success/error
 - Loading state management
-- Event emission verification
-
-### Test Coverage
-
-- Unit tests for individual component methods
-- Integration tests for form validation logic
-- User interaction scenario testing
-- Edge case handling verification
+- Toast notification integration
 
 ## Performance Considerations
 
