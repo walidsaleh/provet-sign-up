@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, computed, inject } from 'vue'
-import type { SignUpFormData, SignUpFormErrors } from '@/types/signup'
-import type { ToastMessage } from '@/types/toast'
 import { literals } from '@/i18n/literals'
 import { LOADING_TIMEOUT } from '@/constants'
+import type { SignUpFormData, SignUpFormErrors } from '@/types/signup'
+import type { ToastMessage } from '@/types/toast'
 
 const emit = defineEmits(['success', 'error'])
 

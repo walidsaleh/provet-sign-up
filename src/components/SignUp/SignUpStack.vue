@@ -1,4 +1,3 @@
-<!-- src/components/SignUpStack.vue -->
 <script setup lang="ts">
 import { ref } from 'vue'
 import { literals } from '@/i18n/literals'

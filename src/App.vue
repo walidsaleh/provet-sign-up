@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, provide } from 'vue'
-import SignUpStack from '@/components/SignUp/SignUpStack.vue'
 import { literals } from '@/i18n/literals'
+import SignUpStack from '@/components/SignUp/SignUpStack.vue'
 import type { ToastMessage } from '@/types/toast'
 
 const emptyToastMessage: ToastMessage = { message: '', variant: 'default' }
