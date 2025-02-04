@@ -24,50 +24,25 @@ const handleFormError = (error: string) => {
 </script>
 
 <template>
-  <provet-stack
-    class="sign-up-stack"
-    direction="vertical"
-    align-items="center"
-    justify-content="center"
-  >
-    <img
-      class="provet-cloud-logo"
-      :alt="literals.signUp.logoAlt"
-      src="/provet_cloud_new_logo_570x80.png"
-    />
-    <provet-stack style="max-inline-size: 340px; margin: var(--n-space-xl) auto" padding="l">
-      <provet-banner v-if="isSuccess" shadow variant="success">
-        {{ literals.signUp.registration.thanks }}
-        <template v-if="formData?.receiveUpdates">
-          <br />
-          {{ literals.signUp.registration.willUpdate }}
-        </template>
-      </provet-banner>
-      <template v-else>
-        <provet-card padding="l">
-          <h1 slot="header" class="n-font-size-l">{{ literals.signUp.title }}</h1>
-          <provet-stack>
-            <p>{{ literals.signUp.subtitle }}</p>
-            <SignUpForm @success="handleFormSuccess" @error="handleFormError" />
-            <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-          </provet-stack>
-        </provet-card>
-
-        <SignUpLoginLink />
+  <provet-stack style="max-inline-size: 340px; margin: var(--n-space-xl) auto" padding="l">
+    <provet-banner v-if="isSuccess" shadow variant="success">
+      {{ literals.signUp.registration.thanks }}
+      <template v-if="formData?.receiveUpdates">
+        <br />
+        {{ literals.signUp.registration.willUpdate }}
       </template>
-    </provet-stack>
+    </provet-banner>
+    <template v-else>
+      <provet-card padding="l">
+        <h1 slot="header" class="n-font-size-l">{{ literals.signUp.title }}</h1>
+        <provet-stack>
+          <p>{{ literals.signUp.subtitle }}</p>
+          <SignUpForm @success="handleFormSuccess" @error="handleFormError" />
+          <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
+        </provet-stack>
+      </provet-card>
+
+      <SignUpLoginLink />
+    </template>
   </provet-stack>
 </template>
-
-<style scoped>
-.sign-up-stack {
-  inline-size: 90%;
-  max-inline-size: 600px;
-  margin: var(--n-space-xl) auto;
-  row-gap: var(--n-space-xl);
-
-  .provet-cloud-logo {
-    max-block-size: var(--n-space-xl);
-  }
-}
-</style>
