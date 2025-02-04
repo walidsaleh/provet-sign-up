@@ -31,11 +31,23 @@ export interface SignUpLiterals {
   }
 }
 
+export interface LayoutLiterals {
+  logo: {
+    alt: string
+  }
+}
+
 export interface Literals {
+  layout: LayoutLiterals
   signUp: SignUpLiterals
 }
 
 export const literals: Literals = {
+  layout: {
+    logo: {
+      alt: 'Provet Cloud Logo',
+    },
+  },
   signUp: {
     logoAlt: 'Provet Cloud Logo',
     title: 'Sign Up',
@@ -48,10 +60,10 @@ export const literals: Literals = {
       label: 'Password',
       placeholder: 'Enter your password',
     },
-    keepUpdated: 'Keep me updated',
+    keepUpdated: 'Keep me updated with news and offers',
     submitButton: {
       default: 'Sign Up',
-      loading: 'Signing up...',
+      loading: 'Signing Up...',
     },
     validation: {
       emailRequired: 'Email is required',
@@ -59,13 +71,13 @@ export const literals: Literals = {
     },
     registration: {
       allreadyRegistered: 'Already registered?',
-      logIn: 'Log In',
-      loginTitle: 'Go to Login Page',
+      logIn: 'Log in',
+      loginTitle: 'Log in to your account',
       loginUrl: 'https://login.provetcloud.com/',
-      thanks: 'Thank you for joining Provet!',
-      willUpdate: 'You will receive product updates',
-      error: 'There was an error processing your registration. Please try again',
-      success: 'You have been registered successfully',
+      thanks: 'Thanks for signing up!',
+      willUpdate: 'We will keep you updated with news and offers.',
+      error: 'Something went wrong. Please try again.',
+      success: 'Registration successful!',
     },
   },
 }

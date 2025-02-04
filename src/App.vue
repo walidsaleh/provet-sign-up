@@ -22,7 +22,7 @@ provide('displayToast', displayToast)
   >
     <img
       class="provet-cloud-logo"
-      :alt="literals.signUp.logoAlt"
+      :alt="literals.layout.logo.alt"
       src="/provet_cloud_new_logo_570x80.png"
     />
     <SignUpStack />
