@@ -39,6 +39,7 @@ This project implements a client-side rendered sign-up form for Provet, built us
 - Comprehensive unit test coverage
 - Dependency injection using Vue's provide/inject
 - Flexible content rendering with slots
+- Basic i18n support with literals
 - Separation of concerns in component design
 
 ## Installation
@@ -125,24 +126,29 @@ Our testing approach focuses on comprehensive coverage of `SignUpForm` component
 
 ## Performance Considerations
 
-- Minimal runtime overhead
+- Minimal runtime overhead with Vue 3 Composition API
 - Efficient reactive updates
-- Optimized form validation
-- Lazy-loaded components
+- Optimized form validation using computed properties
+- Small bundle size with tree-shakeable code
+
+## Project Scope Note
+
+This project was developed as a technical exercise to demonstrate Vue.js and TypeScript capabilities. While the implementation focuses on core functionality and clean code practices, certain aspects like comprehensive i18n, extensive accessibility features, and performance optimizations were intentionally kept minimal to align with the exercise's scope and time constraints.
+
+Key aspects that were prioritized:
+- Consistent use of Provet Cloud Design System components
+- Clean, maintainable code architecture
+- Vue 3 Composition API best practices
+- TypeScript type safety
+- Component modularity and reusability
+- Basic testing coverage
 
 ## Accessibility
 
 - Semantic HTML structure
-- ARIA attributes for form elements
 - Keyboard navigation support
-- Screen reader compatibility
-
-## Future Improvements
-
-- Add more comprehensive form validations
-- Implement internationalization (i18n)
-- Enhance error handling
-- Add more granular unit tests
+- Clear error messaging
+- Visual feedback for form states
 
 ## Contributing
 
